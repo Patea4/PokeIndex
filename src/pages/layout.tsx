@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Head from "next/head";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 
@@ -9,11 +9,6 @@ const poppins = Poppins({
 });
 
 
-export const metadata: Metadata = {
-  title: "PokeIndex",
-  description: "The Definitive Pokemon Index",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <Head>
+      <meta name="PokeIndex" content="The Definite Pokemon Index" />
+    </Head>
       <body
         className={`${poppins.variable}`}
       >
