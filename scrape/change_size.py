@@ -5,7 +5,7 @@ def change_size():
     for file in os.listdir("scrape/sprites"):
         print(file)
         img = Image.open(f"scrape/sprites/{file}")
-        img = img.resize((256, 256), Image.ANTIALIAS)
+        img = img.resize((256, 256))
         img.save(f"scrape/sprites/{file}")
 
 
@@ -93,7 +93,14 @@ def remove_empty_space_from_right():
             img = img.crop((0, 0, empty_column, img.height))
             img.save(f"scrape/sprites/{file}")
 
+def remove_empty_space():
+    remove_empty_space_from_top()
+    remove_empty_space_from_bottom()
+    remove_empty_space_from_left()
+    remove_empty_space_from_right()
+
 
 if __name__ == "__main__":
     change_size()
-    #remove_empty_space_from_right()
+    remove_empty_space()
+    change_size()
