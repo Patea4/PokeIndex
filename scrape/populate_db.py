@@ -20,6 +20,7 @@ def get_pokemon(name: str):
         chain = chain[0]["evolves_to"]
 
     pokemon["color"] = species["color"]["name"]
+    pokemon["genereation"] = species["generation"]["name"] # needs to be updated
     pokemon["evolutions"] = evolutions
 
     return pokemon
