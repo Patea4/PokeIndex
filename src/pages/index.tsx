@@ -1,4 +1,3 @@
-import '@/pages/globals.css'
 import PokemonInfoCard from '@/components/PokemonInfoCard/PokemonInfoCard';
 import PokemonList from "@/components/PokemonList/PokemonList";
 import {useState} from 'react';
