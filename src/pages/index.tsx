@@ -40,7 +40,7 @@ export default function Home({pokemons}: HomeProps) {
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   try {
     const client = await clientPromise;
-    const db = client.db(process.env.MONGOD_DB);
+    const db = client.db(process.env.MONGO_DB);
 
     const pokemonsData = await db.collection('pokemon').find({}).toArray();
 
