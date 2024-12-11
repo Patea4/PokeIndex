@@ -2,17 +2,35 @@ export interface Pokemon {
   id: number;
   name: string;
   types: string[];
-  generation: number;
+  generation: string;
   description: string;
   weight: string,
   height: string,
+  abilities: Ability[],
+  evolutions: string[],
   // add more info
 }
 
-export enum PokemonType {
-  Electric = "Electric",
-  Water = "Water",
-  Fire = "Fire",
-  Grass = "Grass",
-  Poison = "Poison"
+export interface AbilityDetail {
+  name: string;
+  url: string;
 }
+
+export interface Ability {
+  ability: AbilityDetail;
+  is_hidden: boolean;
+  slot: number;
+}
+
+export interface DbPokemon {
+  id: number;
+  name: string;
+  types: string[];
+  generation: string;
+  description?: string;
+  abilities?: Ability[];
+  height: string;
+  weight: string;
+  evolutions: string[];
+}
+

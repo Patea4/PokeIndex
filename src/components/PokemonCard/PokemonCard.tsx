@@ -9,13 +9,13 @@ interface PokemonCardProps {
 }
 
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onHover, onHoverOut}) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onHover}) => {
   const imageUrl = `/images/sprites/${pokemon.id}.png`;
   return (
     <div
       className=" rounded-lg p-4 transition-shadow duration-200  cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
       onMouseEnter={onHover}
-      onMouseLeave={onHoverOut}
+      //onMouseLeave={onHoverOut}
     >
       <Image
         src={imageUrl}
