@@ -20,10 +20,8 @@ export default function Home({ pokemons }: HomeProps) {
   const [searchState, setSearchState] = useState<string>('');
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-  // Tokenize search for multi-attribute queries
   const tokens = searchState.toLowerCase().split(/\s+/).filter(Boolean);
 
-  // Filter Pokémon by multiple tokens across multiple attributes
   const filteredPokemons = pokemons.filter((pokemon) => {
     return tokens.every(token => {
       const inName = pokemon.name.toLowerCase().includes(token);
@@ -54,7 +52,6 @@ export default function Home({ pokemons }: HomeProps) {
         />
 
         <div className="flex-1 pt-20 flex flex-col lg:flex-row">
-          {/* Sidebar: Visible on all sizes. On small screens: top; on large: left */}
           <div className="
             w-full lg:w-[400px] p-4 bg-white dark:bg-gray-800 border-r border-gray-300 dark:border-gray-700
             h-auto lg:h-full lg:overflow-y-auto lg:fixed lg:top-20 lg:left-0 shadow-lg transition-colors duration-300
@@ -66,7 +63,6 @@ export default function Home({ pokemons }: HomeProps) {
             )}
           </div>
 
-          {/* Main Content */}
           <div className="flex flex-col w-full lg:ml-[400px] p-4 space-y-4 overflow-y-auto">
             {generations.map((generation) => {
               const pokemonInGen = getPokemonsByGeneration(generation);
@@ -94,10 +90,10 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
     const pokemonsData = await db.collection('pokemon').find({}).toArray();
 
-    const pokemons: Pokemon[] = pokemonsData.map((doc: any) => {
+    const pokemons: Pokemon[] = pokemonsData.map((doc) => {
       const generation = transformGeneration(doc.generation || '');
 
-      const abilities: Ability[] = (doc.abilities || []).map((abilityObj: any) => ({
+      const abilities: Ability[] = (doc.abilities || []).map((abilityObj: Ability) => ({
         ability: {
           name: abilityObj.ability.name.replaceAll("-", " ") || 'Unknown Ability',
           url: abilityObj.ability.url || '',
