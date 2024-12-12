@@ -2,17 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #212529;
-  --foreground: #ffffff;
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-html {
-  scroll-behavior: smooth;
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
 }

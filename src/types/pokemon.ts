@@ -8,6 +8,7 @@ export interface Pokemon {
   height: string,
   abilities: Ability[],
   evolutions: string[],
+  color: string,
   // add more info
 }
 
